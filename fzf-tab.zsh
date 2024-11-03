@@ -133,7 +133,7 @@ builtin unalias -m '[^+]*'
         return 0
       fi
 
-      -ftb-generate-query      # sets `_ftb_query`
+      # -ftb-generate-query      # sets `_ftb_query`
       -ftb-generate-header     # sets `_ftb_headers`
       -ftb-zstyle -s print-query print_query || print_query=alt-enter
       -ftb-zstyle -s accept-line accept_line
@@ -258,7 +258,8 @@ fzf-tab-complete() {
   echoti cnorm >/dev/tty 2>/dev/null
   zle .redisplay
   (( _ftb_accept )) && zle .accept-line
-  return $ret
+  # return $ret
+  return 0  # to avoid terminal bell
 }
 
 # this function does nothing, it is used to be wrapped by other plugins like f-sy-h.
